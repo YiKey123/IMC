@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+<title></title>
+<style type="text/css">
+ h1{
+  background-color: #eb5534;
+  color: #cfc9c8;
+  text-align: center;
+ }
+ .res{
+  padding: 15px;
+  margin: 5px;
+  text-align: center;
+  color: #1f1918;
+  font-size: 24px;
+ }
+</style>
+</head>
+
+<body>
+ <header><h1>CALCULADORA DE IMC</h1></header>
+ <section class="res">
+ <br><br>
+ <h3>Peso (kg)</h3>
+ <input type="number" id="nro1">
+ <h3>Estatura (m)</h3>
+ <input type="number" id="nro2">
+ <button id="btn">IMC</button>
+ <br><br><br>
+    <h2>Índice de masa corporal:</h2>
+ <div id="resultado"></div>
+ <div id="categoria"></div>
+ <script>
+  //  registra un evento 
+  var e=document.getElementById('btn');
+  e.addEventListener('click',IMC);  
+  function IMC()
+  {
+    var kg=parseInt(document.getElementById('nro1').value);
+    var m=parseFloat(document.getElementById('nro2').value);
+    var e=kg/m**2;
+   document.getElementById("resultado").innerHTML=  e.toFixed(1);
+   
+   if (e>=30){
+       document.getElementById("categoria").innerHTML= "Obesidad";
+    }
+   else{
+       if (e>=24.9){
+           document.getElementById("categoria").innerHTML= "Indice superior al normal";
+       }
+       else{
+           if (e>=18.5){
+               document.getElementById("categoria").innerHTML= "Indice normal";
+            }
+           else{
+               document.getElementById("categoria").innerHTML= "Indice menor al normal"
+               }
+           }
+      }
+  }
+ </script>
+</section>
+</body>
+
+</html>
